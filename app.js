@@ -1,5 +1,6 @@
 const subjectSelect = document.getElementById("subjectSelect");
 const answerArea = document.getElementById("answerArea");
+const result = document.getElementById("result");
 
 for (let subject in EXAMS) {
   const option = document.createElement("option");
@@ -10,35 +11,83 @@ for (let subject in EXAMS) {
 
 subjectSelect.addEventListener("change", () => {
   answerArea.innerHTML = "";
+  result.textContent = "";
 
-  const subject = EXAMS[subjectSelect.value];
+  const exam = EXAMS[subjectSelect.value];
 
-  subject.answers.forEach((_, index) => {
+  exam.questions.forEach((question, index) => {
     const div = document.createElement("div");
     div.className = "question";
 
     div.innerHTML = `
       <label>${index + 1}번</label>
-      <input type="number" min="1" max="5" id="q${index}">
+      <input
+        type="text"
+        inputmode="numeric"
+        id="q${index}"
+        class="answer-input"
+        placeholder="${question.type === "choice" ? "1~5" : "주관식"}"
+      >
+      <span id="mark${index}"></span>
     `;
 
     answerArea.appendChild(div);
+
+    const input = document.getElementById(`q${index}`);
+
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/[^0-9]/g, "");
+
+      if (question.type === "choice" && input.value.length === 1) {
+        moveToNext(index);
+      }
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (question.type === "short" && e.key === "Enter") {
+        moveToNext(index);
+      }
+    });
   });
 });
 
+function moveToNext(index) {
+  const nextInput = document.getElementById(`q${index + 1}`);
+
+  if (nextInput) {
+    nextInput.focus();
+  }
+}
+
 function gradeExam() {
-  const subject = EXAMS[subjectSelect.value];
+  const exam = EXAMS[subjectSelect.value];
 
   let total = 0;
+  let maxScore = 0;
+  let wrongList = [];
 
-  subject.answers.forEach((answer, index) => {
-    const userAnswer = Number(document.getElementById(`q${index}`).value);
+  exam.questions.forEach((question, index) => {
+    const input = document.getElementById(`q${index}`);
+    const mark = document.getElementById(`mark${index}`);
 
-    if (userAnswer === answer) {
-      total += subject.scores[index];
+    const userAnswer = input.value.trim();
+    const correctAnswer = question.answer.trim();
+
+    maxScore += question.score;
+
+    if (userAnswer === correctAnswer) {
+      total += question.score;
+      mark.textContent = " O";
+      mark.style.color = "green";
+    } else {
+      mark.textContent = ` X 정답: ${correctAnswer}`;
+      mark.style.color = "red";
+      wrongList.push(index + 1);
     }
   });
 
-  document.getElementById("result").textContent =
-    `점수: ${total}점`;
+  result.innerHTML = `
+    점수: ${total} / ${maxScore}<br>
+    틀린 문제: ${wrongList.length ? wrongList.join(", ") : "없음"}
+  `;
 }
