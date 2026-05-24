@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>내신 자동채점기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>내신 자동채점기</h1>
+
+    <select id="subjectSelect">
+      <option value="">과목 선택</option>
+    </select>
+
+    <div id="answerArea"></div>
+
+    <button onclick="gradeExam()">채점하기</button>
+
+    <h2 id="result"></h2>
+  </div>
+
+  <script src="answers.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

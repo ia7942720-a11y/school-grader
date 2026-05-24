@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  padding: 30px;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.question {
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
