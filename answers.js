@@ -1,21 +1,122 @@
 const EXAMS = {
   "화작": {
-    answers: [1,3,2,4,2,1,2,3,4,5,1,2,3,4,5,2,3,3,4,1,2,3,1,1,1,1,2,3,4,2,4,6,7,4,3,2,4,4,],
-    scores: [4,4,4,4,4,3,3,4,5,7,7,4,3,2,1,3,3,5,5,4,3,2,3,4,5,4,33,4,4,4,4,3,3,2,2,]
+    questions: [
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" }
+    ]
   },
 
-   "언매": {
-    answers: [1,3,2,4,2],
-    scores: [4,4,4,4,4]
-  },
-  
-  "영어": {
-    answers: [2,1,4,3,1],
-    scores: [4,4,4,4,4]
+  "미적분": {
+    questions: [
+     { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "short" },
+      { answer: "3", score: 4, type: "short" },
+      { answer: "2", score: 4, type: "short" },
+      { answer: "4", score: 4, type: "short" },
+      { answer: "2", score: 4, type: "short" },
+      { answer: "1", score: 4, type: "short" },
+      { answer: "3", score: 4, type: "short" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "short" },
+      { answer: "2", score: 4, type: "short" }
+      
+    ]
   },
 
-  "생명과학 II": {
-    answers: [3,2,1,4,2],
-    scores: [4,4,4,4,4]
-  }
-};
+ "확통": {
+    questions: [
+     { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "short" },
+      { answer: "3", score: 4, type: "short" },
+      { answer: "2", score: 4, type: "short" },
+      { answer: "4", score: 4, type: "short" },
+      { answer: "2", score: 4, type: "short" },
+      { answer: "1", score: 4, type: "short" },
+      { answer: "3", score: 4, type: "short" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "1", score: 4, type: "choice" },
+      { answer: "3", score: 4, type: "choice" },
+      { answer: "2", score: 4, type: "choice" },
+      { answer: "4", score: 4, type: "short" },
+      { answer: "2", score: 4, type: "short" }
+      
+    ]
+  },
