@@ -35,9 +35,18 @@ subjectSelect.addEventListener("change", () => {
 
     const input = document.getElementById(`q${index}`);
 
+    const savedAnswers = JSON.parse(localStorage.getItem("savedAnswers")) || {};
+const subjectName = subjectSelect.value;
+
+if (savedAnswers[subjectName] && savedAnswers[subjectName][index]) {
+  input.value = savedAnswers[subjectName][index];
+}
+    
     input.addEventListener("input", () => {
       input.value = input.value.replace(/[^0-9]/g, "");
 
+      saveCurrentAnswers();
+      
       if (question.type === "choice" && input.value.length === 1) {
         moveToNext(index);
       }
@@ -103,3 +112,21 @@ history.push({
 });
 
 localStorage.setItem("gradeHistory", JSON.stringify(history));
+
+function saveCurrentAnswers() {
+  const subjectName = subjectSelect.value;
+  if (!subjectName) return;
+
+  const exam = EXAMS[subjectName];
+  const answers = [];
+
+  exam.questions.forEach((_, index) => {
+    const input = document.getElementById(`q${index}`);
+    answers[index] = input ? input.value : "";
+  });
+
+  const savedAnswers = JSON.parse(localStorage.getItem("savedAnswers")) || {};
+  savedAnswers[subjectName] = answers;
+
+  localStorage.setItem("savedAnswers", JSON.stringify(savedAnswers));
+}
