@@ -52,6 +52,10 @@ if (savedAnswers[subjectName] && savedAnswers[subjectName][index]) {
       }
     });
 
+    if (hasSavedAnswers(subjectSelect.value)) {
+  gradeExam(false);
+}
+
     input.addEventListener("keydown", (e) => {
       if (question.type === "short" && e.key === "Enter") {
         moveToNext(index);
@@ -129,4 +133,8 @@ function saveCurrentAnswers() {
   savedAnswers[subjectName] = answers;
 
   localStorage.setItem("savedAnswers", JSON.stringify(savedAnswers));
+}
+function hasSavedAnswers(subjectName) {
+  const savedAnswers = JSON.parse(localStorage.getItem("savedAnswers")) || {};
+  return savedAnswers[subjectName] && savedAnswers[subjectName].some(answer => answer !== "");
 }
