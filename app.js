@@ -72,7 +72,7 @@ function moveToNext(index) {
   }
 }
 
-function gradeExam() {
+function gradeExam(saveHistory = true) {
   const exam = EXAMS[subjectSelect.value];
 
   let total = 0;
