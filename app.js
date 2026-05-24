@@ -91,3 +91,15 @@ function gradeExam() {
     틀린 문제: ${wrongList.length ? wrongList.join(", ") : "없음"}
   `;
 }
+
+const history = JSON.parse(localStorage.getItem("gradeHistory")) || [];
+
+history.push({
+  subject: subjectSelect.value,
+  score: total,
+  maxScore: maxScore,
+  wrong: wrongList,
+  date: new Date().toLocaleString()
+});
+
+localStorage.setItem("gradeHistory", JSON.stringify(history));
